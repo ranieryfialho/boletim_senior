@@ -11,5 +11,6 @@ filtrar = st.selectbox("Turmas", boletim["TURMA"].unique())
 botao = st.button("Filtrar")
 st.write("-"*80)
 
-if botao == True:
-    boletim.loc[boletim["TURMA"] == "filtrar"]
+if botao:
+    boletim_filtrado = boletim.loc[boletim["TURMA"] == filtrar]
+    st.dataframe(boletim_filtrado)
