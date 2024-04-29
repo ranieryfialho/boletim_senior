@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-st.title("Boletim Sênior Profissões")
+st.title("Boletim Sênior Profissões 👽")
 st.subheader("Escolha a turma")
 
 boletim = pd.read_csv('https://raw.githubusercontent.com/ranieryfialho/boletim_senior/main/BOLETIM%20beta.csv')
