@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-st.title("Boletim Sênior Profissões 👽")
+st.title("Boletim Sênior Profissões")
 st.subheader("Escolha a turma")
 
 boletim = pd.read_csv('https://raw.githubusercontent.com/ranieryfialho/boletim_senior/main/BOLETIM%20beta.csv')
@@ -15,9 +15,9 @@ botao_aluno = st.button("Filtrar por Aluno")
 st.write("-"*80)
 
 if botao_turma:
-    boletim_filtrado_turma = boletim.loc[boletim["TURMA"] == filtrar_turma]
+    boletim_filtrado_turma = boletim.loc[boletim["TURMA"].str.lower() == filtrar_turma]
     st.dataframe(boletim_filtrado_turma)
 
 if botao_aluno:
-    boletim_filtrado_aluno = boletim.loc[boletim["ALUNOS"] == filtar_aluno]
+    boletim_filtrado_aluno = boletim.loc[boletim["ALUNOS"].str.lower() == filtar_aluno]
     st.dataframe(boletim_filtrado_aluno)
