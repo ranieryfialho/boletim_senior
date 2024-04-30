@@ -5,7 +5,7 @@ st.title("Boletim Sênior Profissões")
 st.subheader("Escolha a turma")
 
 boletim = pd.read_csv('https://raw.githubusercontent.com/ranieryfialho/boletim_senior/main/BOLETIM%20beta.csv')
-st.dataframe(boletim)
+# st.dataframe(boletim)
 
 filtrar_turma = st.selectbox("Turmas", boletim["TURMA"].unique())
 botao_turma = st.button("Filtrar por Turma")
@@ -19,5 +19,5 @@ if botao_turma:
     st.dataframe(boletim_filtrado_turma)
 
 if botao_aluno:
-    boletim_filtrado_aluno = boletim.loc[boletim["ALUNOS"].str.lower() == filtar_aluno]
+    boletim_filtrado_aluno = boletim.loc[boletim["ALUNOS"].str.lower().str.contains(filtar_aluno)]
     st.dataframe(boletim_filtrado_aluno)
