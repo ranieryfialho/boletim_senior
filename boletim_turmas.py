@@ -10,7 +10,7 @@ st.dataframe(boletim)
 filtrar_turma = st.selectbox("Turmas", boletim["TURMA"].unique())
 botao_turma = st.button("Filtrar por Turma")
 
-filtar_aluno = st.text_input("Digite o nome do aluno: ")
+filtar_aluno = st.text_input("Digite o nome do aluno: ").strip().lower()
 botao_aluno = st.button("Filtrar por Aluno")
 st.write("-"*80)
 
@@ -19,5 +19,5 @@ if botao_turma:
     st.dataframe(boletim_filtrado_turma)
 
 if botao_aluno:
-    boletim_filtrado_aluno = boletim.loc[boletim["ALUNOS"] == filtar_aluno]
+    boletim_filtrado_aluno = boletim.loc[boletim["ALUNOS"].str.lower() == filtar_aluno]
     st.dataframe(boletim_filtrado_aluno)
