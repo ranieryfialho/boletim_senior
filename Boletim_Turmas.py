@@ -1,23 +1,9 @@
 import streamlit as st
-import pandas as pd
 
-st.title("Boletim Sênior Profissões")
-st.subheader("Escolha a turma")
+st.markdown("<h1 style='text-align: center;'>Boletim - Sênior Profissões</h1>", unsafe_allow_html=True)
+st.markdown("""
+    <p style='text-align: justify;'>A aplicação é destinada a facilitar a visualização e o gerenciamento de dados de alunos de uma instituição de ensino, apresentados em um boletim. Utilizando uma interface interativa, a aplicação permite aos usuários visualizar um boletim completo e aplicar filtros específicos por turma ou por nome do aluno. Os filtros podem ser ajustados para procurar por turmas específicas através de um menu dropdown ou por partes do nome do aluno, oferecendo flexibilidade na busca e melhorando a usabilidade para o usuário final. Isso torna a ferramenta extremamente útil para administradores escolares, professores ou até mesmo alunos que buscam informações específicas dentro de um conjunto de dados educacionais.</p>
+""", unsafe_allow_html=True)
 
-boletim = pd.read_csv('https://raw.githubusercontent.com/ranieryfialho/boletim_senior/main/BOLETIM%20beta.csv')
-# st.dataframe(boletim)
-
-filtrar_turma = st.selectbox("Turmas", boletim["TURMA"].unique())
-botao_turma = st.button("Filtrar por Turma")
-
-filtar_aluno = st.text_input("Digite o nome do aluno: ").strip().lower()
-botao_aluno = st.button("Filtrar por Aluno")
-st.write("-"*80)
-
-if botao_turma:
-    boletim_filtrado_turma = boletim.loc[boletim["TURMA"] == filtrar_turma]
-    st.dataframe(boletim_filtrado_turma)
-
-if botao_aluno:
-    boletim_filtrado_aluno = boletim.loc[boletim["ALUNOS"].str.lower().str.contains(filtar_aluno)]
-    st.dataframe(boletim_filtrado_aluno)
+link = "https://ranieryfialho.github.io/linktree/"
+st.markdown(f"<p style='text-align: center;'><a href='{link}' target='_blank'>© 2024 Raniery Fialho. Todos Os Direitos Reservados.</a></p>", unsafe_allow_html=True)
